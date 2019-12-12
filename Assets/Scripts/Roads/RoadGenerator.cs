@@ -57,14 +57,14 @@ public class RoadGenerator
 
     private State _state;
 
-    private Roads _roads;
-    private Roads _savedRoads;
+    private RoadData _roads;
+    private RoadData _savedRoads;
 
     private RoadPrefabs _roadPrefabs;
     public RoadGenerator()
     {
-        _roads = new Roads();
-        _savedRoads = new Roads();
+        _roads = new RoadData();
+        _savedRoads = new RoadData();
         _roadPrefabs = Object.FindObjectOfType<RoadPrefabs>();
     }
 
@@ -88,18 +88,7 @@ public class RoadGenerator
             return;
         _state = State.Cancelled;
 
-        foreach (var road in _savedRoads.roads)
-        {
-            Road oldRoad = _roads.Get(road.Key.x, road.Key.y);
-            Object.Destroy(road.Value.gameObject);
-            
-            if (oldRoad != null)
-                oldRoad.gameObject = PlaceRoad(road.Key.x, road.Key.y, oldRoad.type, oldRoad.direction);
-            else
-                Tiles.Grid[road.Key.x, road.Key.y].type = Tile.Type.Empty;
-
-        }
-        _savedRoads.Clear();
+        ClearSavedRoads();
     }
 
     public bool CanCreateRoad(int x, int y)
@@ -107,22 +96,35 @@ public class RoadGenerator
         if (_state != State.Start)
             return false;
 
-        return Tiles.IsEmpty(x, y);
+        return Map.IsEmpty(x, y);
     }
 
     public void ClearSavedRoads()
     {
-        _savedRoads.Clear(true);
+        foreach (var road in _savedRoads.roads)
+        {
+            Road oldRoad = _roads.Get(road.Key.x, road.Key.y);
+
+            Object.Destroy(road.Value.gameObject);
+
+            if (oldRoad != null)
+                oldRoad.gameObject = PlaceRoad(road.Key.x, road.Key.y, oldRoad.type, oldRoad.direction);
+            else
+                Map.SetTileType(road.Key.x, road.Key.y, Tile.Type.Empty);
+
+        }
+        _savedRoads.Clear();
     }
 
-    public Road Generate(int x, int y)
+  
+    public void Generate(int x, int y)
     {
-        Road roadTile = CreateNewRoad(x, y);
-        ModifyRoad(x + 1, y);
-        ModifyRoad(x, y + 1);
-        ModifyRoad(x - 1, y);
-        ModifyRoad(x, y - 1);
-        return roadTile;
+        if (Map.GetTileType(x,y) == Tile.Type.Road)
+            return;
+
+        CreateNewRoad(x, y);
+        for (int i = 0; i < 4; i++)
+            ModifyRoad(x + Map.GetDirection(i).x, y + Map.GetDirection(i).y);
     }
 
     private Road CreateNewRoad(int x, int y)
@@ -135,11 +137,12 @@ public class RoadGenerator
 
     private void ModifyRoad(int x, int y)
     {
-        if (Tiles.Grid[x, y].type != Tile.Type.Road)
+        if (Map.GetTileType(x, y) != Tile.Type.Road)
             return;
 
         Road newRoad = CreateRoad(x, y);
         Road oldRoad = _savedRoads.Get(x, y);
+
         if (oldRoad == null)
             oldRoad = _roads.Get(x, y);
 
@@ -153,7 +156,7 @@ public class RoadGenerator
 
     private Road CreateRoad(int x, int y)
     {
-        int configuration = Tiles.GetRoadConfig(x, y);
+        int configuration = Map.GetRoadConfig(x, y);
 
         Road.Type roadType = Road.Type.None;
 
@@ -210,8 +213,8 @@ public class RoadGenerator
                 break;
         }
 
-        GameObject obj = Object.Instantiate(prefab, new Vector3(x - 256, 0f, y - 256), rotation, _roadPrefabs.Parent);
-        obj.name = x + "," + y;
+        GameObject obj = Object.Instantiate(prefab, new Vector3(x - Map.Size.x/2, 0f, y - Map.Size.y/2), rotation, _roadPrefabs.Parent);
+        obj.name = x + "," + y + ", " + roadType;
         return obj;
     }
 }

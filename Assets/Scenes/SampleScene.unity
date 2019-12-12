@@ -128,6 +128,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2117005855}
     m_Modifications:
+    - target: {fileID: 2502897737013200345, guid: c1536e1c92fb1a54d9cfa7ead94bee04,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2502897738259071673, guid: c1536e1c92fb1a54d9cfa7ead94bee04,
         type: 3}
       propertyPath: m_Name
@@ -176,7 +181,7 @@ PrefabInstance:
     - target: {fileID: 2502897738259071674, guid: c1536e1c92fb1a54d9cfa7ead94bee04,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2502897738259071674, guid: c1536e1c92fb1a54d9cfa7ead94bee04,
         type: 3}
@@ -388,7 +393,7 @@ Transform:
   m_GameObject: {fileID: 935194838}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.001, z: 0}
-  m_LocalScale: {x: 10, y: 1, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2117005855}
   m_RootOrder: 0
@@ -558,7 +563,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Camera: {fileID: 963194227}
   m_Selection: {fileID: 538777924}
-  m_SelectionMoveSpeed: 50
+  m_SelectionMoveSpeed: 100
+  m_MapGameobject: {fileID: 935194838}
+  m_Size: {x: 100, y: 100}
+  m_ObstacleCount: 200
 --- !u!4 &2117005855
 Transform:
   m_ObjectHideFlags: 0

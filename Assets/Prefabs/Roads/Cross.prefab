@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3778331220743742185}
   - component: {fileID: 3778331220743742196}
   - component: {fileID: 3778331220743742187}
-  - component: {fileID: 3778331220743742186}
   m_Layer: 0
   m_Name: Cross (1)
   m_TagString: Untagged
@@ -80,19 +79,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &3778331220743742186
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3778331220743742184}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3778331222032182584
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,7 +90,6 @@ GameObject:
   - component: {fileID: 3778331222032182585}
   - component: {fileID: 3778331222032182596}
   - component: {fileID: 3778331222032182587}
-  - component: {fileID: 3778331222032182586}
   m_Layer: 0
   m_Name: Cross
   m_TagString: Untagged
@@ -175,19 +160,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &3778331222032182586
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3778331222032182584}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3778331222286865532
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,7 +171,6 @@ GameObject:
   - component: {fileID: 3778331222286865533}
   - component: {fileID: 3778331222286865528}
   - component: {fileID: 3778331222286865535}
-  - component: {fileID: 3778331222286865534}
   m_Layer: 0
   m_Name: Cross (2)
   m_TagString: Untagged
@@ -268,16 +239,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &3778331222286865534
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3778331222286865532}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}

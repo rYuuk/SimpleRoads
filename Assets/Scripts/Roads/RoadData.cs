@@ -2,11 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Roads
+public class RoadData
 {
     public Dictionary<Vector2Int, Road> roads { get; }
 
-    public Roads()
+    public RoadData()
     {
         roads = new Dictionary<Vector2Int, Road>();
     }
@@ -20,7 +20,7 @@ public class Roads
 
     public void Add(int x, int y, Road road)
     {
-        Tiles.Grid[x, y].type = Tile.Type.Road;
+        Map.SetTileType(x, y, Tile.Type.Road);
 
         Vector2Int key = new Vector2Int(x, y);
         if (!roads.ContainsKey(key))
@@ -44,27 +44,8 @@ public class Roads
         return null;
     }
 
-    public void Remove(int x, int y)
+    public void Clear()
     {
-        Vector2Int key = new Vector2Int(x, y);
-        if (roads.ContainsKey(key))
-        {
-            roads.Remove(key);
-            Tiles.Grid[x, y].type = Tile.Type.Empty;
-        }
-    }
-
-    public void Clear(bool clearAllTiles = false)
-    {
-        if (clearAllTiles)
-        {
-            foreach (var road in roads)
-            {
-                Tiles.Grid[road.Key.x, road.Key.y].type = Tile.Type.Empty;
-                Object.Destroy(road.Value.gameObject);
-            }
-        }
-
         roads.Clear();
     }
 
