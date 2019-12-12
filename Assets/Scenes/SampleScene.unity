@@ -486,7 +486,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1628262121}
   - component: {fileID: 1628262120}
-  - component: {fileID: 1628262119}
   m_Layer: 0
   m_Name: Roads
   m_TagString: Untagged
@@ -494,19 +493,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1628262119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1628262118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79887ada22515924384277741914f547, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RoadGenerator: {fileID: 1628262120}
 --- !u!114 &1628262120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,7 +502,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1628262118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2bb1c62a903c284d8b19fedfc5ba523, type: 3}
+  m_Script: {fileID: 11500000, guid: f7136b12bad04cf4a877501599299651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_StraightRoad: {fileID: 5277227668926185211, guid: 1ec9cf8c0b1c931409a0540fac1530f8,
@@ -526,6 +512,7 @@ MonoBehaviour:
   m_TRoad: {fileID: 4025920626882239758, guid: 57227fcbaf295cf4f862d79e3f832f69, type: 3}
   m_CrossRoad: {fileID: 3778331222032182584, guid: b4c7766112a9c75489917c5e76f39c36,
     type: 3}
+  m_Parent: {fileID: 1628262121}
 --- !u!4 &1628262121
 Transform:
   m_ObjectHideFlags: 0
@@ -571,7 +558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Camera: {fileID: 963194227}
   m_Selection: {fileID: 538777924}
-  m_RoadGenerator: {fileID: 1628262119}
+  m_SelectionMoveSpeed: 50
 --- !u!4 &2117005855
 Transform:
   m_ObjectHideFlags: 0

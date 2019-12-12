@@ -12,6 +12,7 @@ public class Tile
 
     public Type type;
 
+
     public Tile()
     {
         type = Type.Empty;
