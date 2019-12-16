@@ -20,10 +20,10 @@ public static class Map
     private static Vector2Int _size;
     private static readonly Vector2Int[] _direction =
     {
-        new Vector2Int(0, 1),
-        new Vector2Int(1, 0),
-        new Vector2Int(0, -1),
-        new Vector2Int(-1, 0)
+        Vector2Int.up,
+        Vector2Int.right,
+        Vector2Int.down,
+        Vector2Int.left
     };
     public static Vector2Int Size { get => _size; }
     public static void Init(int width, int length)

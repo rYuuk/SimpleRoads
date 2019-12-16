@@ -60,12 +60,12 @@ public class RoadGenerator
     private RoadData _roads;
     private RoadData _savedRoads;
 
-    private RoadPrefabs _roadPrefabs;
+    private RoadMeshGeneration _roadPrefabs;
     public RoadGenerator()
     {
         _roads = new RoadData();
         _savedRoads = new RoadData();
-        _roadPrefabs = Object.FindObjectOfType<RoadPrefabs>();
+        _roadPrefabs = Object.FindObjectOfType<RoadMeshGeneration>();
     }
 
     public void Start()
@@ -215,6 +215,7 @@ public class RoadGenerator
 
         GameObject obj = Object.Instantiate(prefab, new Vector3(x - Map.Size.x/2, 0f, y - Map.Size.y/2), rotation, _roadPrefabs.Parent);
         obj.name = x + "," + y + ", " + roadType;
+        obj.SetActive(true);
         return obj;
     }
 }
